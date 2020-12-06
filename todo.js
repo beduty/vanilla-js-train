@@ -3,7 +3,24 @@ const todoInput = todoForm.querySelector("input");
 const todoList = document.querySelector(".js-todoList");
 
 const TODOS_LS = 'toDos';
-const toDos = [];
+let toDos = [];
+
+function deleteToDo(event){
+    const btn = event.target;
+    const li = btn.parentNode;
+    todoList.removeChild(li);
+    // console.log(event.target.parentNode);
+
+    // toDos.filter를 쓰면 toDos 의 내용중에서 filterFn가 true인 인자를 제거한 뒤 리스트를 리턴한다.
+    const cleanTodos = toDos.filter(function(toDo){
+        // console.log(toDo.id, li.id); // 숫자와 string으로 되어 비교해봐야 1 !== "1" 이다. 
+        return toDo.id !== parseInt(li.id);
+    });
+    console.log(cleanTodos); 
+    toDos = cleanTodos;
+    saveToDos();
+}
+
 function saveToDos(){
     // localStorage.setItem(TODOS_LS, toDos);
     // array즉, JavaScript 객체를 localStorage에 저장할 수 없다. 
@@ -18,6 +35,7 @@ function paintToDo(text){
     const li = document.createElement("li");
     const delBtn = document.createElement("button");
     delBtn.innerText = "❌"
+    delBtn.addEventListener("click", deleteToDo);
     const span = document.createElement("span");
     span.innerText = text;
 
