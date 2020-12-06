@@ -10,3 +10,14 @@ h1 {
 .clicked {
   color: #7f8c8d;
 }
+
+/* 처음에는 아무것도 보여주지 않는다. */
+.grettings,
+.form {
+  display: none;
+}
+
+/* showing 클래스를 추가함으로써 화면에 보여진다. */
+.showing {
+  display: block;
+}
