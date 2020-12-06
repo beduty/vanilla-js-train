@@ -50,6 +50,8 @@ const title = document.querySelector("#title");
 const CLICKED_CLASS = "clicked";
 
 function handleClick(){
+//     원하는 상태의 css 클래스를 만들고, 
+// JavaScript의 이벤트 핸들러로 클래스를 교체하면 반응하는 WebApp을 만들 수 있다!
     // const currentClass = title.className;
     // if(currentClass !== CLICKED_CLASS){
     //     title.className = CLICKED_CLASS;
@@ -66,7 +68,6 @@ function handleClick(){
     // }else{
     //     title.classList.remove(CLICKED_CLASS);
     // }     
-
 
     // 클래스리스트에 CLICKED_CLASS가 없으면 추가하고,있으면 없앤다.
     title.classList.toggle(CLICKED_CLASS);
